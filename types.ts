@@ -5,13 +5,13 @@ export interface Billboard {
 }
 
 export interface Category {
-    id : string,
+    _id : string,
     name : string,
-    billboard : Billboard
+    billboardId : Billboard
 }
 
 export interface Product {
-    id : string,
+    _id : string,
     categoryId : Category,
     name : string,
     price : string,
@@ -21,16 +21,15 @@ export interface Product {
     images : Image[],
 }
 export interface Image {
-    id : string,
     url : string,
 }
 export interface Color {
-    id : string,
+    _id : string,
     name : string,
     value : string,
 }
 export interface Size {
-    id : string,
+    _id : string,
     name : string,
     value : string,
 }
