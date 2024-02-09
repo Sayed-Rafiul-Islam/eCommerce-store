@@ -1,12 +1,14 @@
 "use client"
 
-import Button from "@/components/ui/button";
-import Currency from "@/components/ui/currency";
-import useCart from "@/hooks/use-cart";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+
+
+import Button from "@/components/button";
+import Currency from "@/components/ui/currency";
+import useCart from "@/hooks/use-cart";
 
 const Summery = () => {
 
@@ -29,7 +31,7 @@ const Summery = () => {
     },0)
 
     const onCheckout = async () => {
-        const response = axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
             productId : items.map((item) => item._id)
         })
 
@@ -51,7 +53,7 @@ const Summery = () => {
                     <Currency value={totalPrice} />
                 </div>
             </div>
-            <Button onClick={()=> onCheckout} className="w-full mt-6">
+            <Button onClick={onCheckout} className="w-full mt-6">
                 Checkout
             </Button>
         </div>

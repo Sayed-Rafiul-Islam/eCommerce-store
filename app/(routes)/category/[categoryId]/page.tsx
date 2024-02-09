@@ -34,7 +34,6 @@ const CategoryPage : React.FC<CategoryPageProps> = async ({
     sizeId._id === searchParams.sizeId &&
     colorId._id === searchParams.colorId
     )
-    console.log(categorisedProducts)
     return ( 
         <div className="bg-white">
             <Container>

@@ -4,7 +4,7 @@ import { ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import Button from "@/components/ui/button";
+import Button from "@/components/button";
 import useCart from "@/hooks/use-cart";
 
 const NavbarActions = () => {
@@ -23,7 +23,7 @@ const NavbarActions = () => {
     }
 
     return ( 
-        <div className="flex ml-auto items-center gap-x-4">
+        <div className="flex ml-auto items-center gap-x-4 mr-4">
             <Button onClick={() => router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
                 <ShoppingBag 
                     size={20}
