@@ -8,7 +8,7 @@ export default async function HomePage() {
 
   const products = await getProducts()
   const featuredProducts = products.filter((item) => item.isFeatured === true)
-  const billboard = await getBillboard('65c26eaf1bb882b1dc1801d3')
+  const billboard = await getBillboard()
   return (
     <Container>
       <div className="pb-10 space-y-10">

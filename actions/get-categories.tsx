@@ -6,7 +6,7 @@ const getCategories = async () : Promise<Category[]> => {
 
     const res = await fetch(URL, { cache : "no-store"})
 
-    return res.json()
+    return await res.json()
 }
 
 export default getCategories

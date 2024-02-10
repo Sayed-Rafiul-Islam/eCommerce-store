@@ -6,7 +6,7 @@ const getColors = async () : Promise<Color[]> => {
 
     const res = await fetch(URL, { cache : "no-store"})
 
-    return res.json()
+    return await res.json()
 }
 
 export default getColors
