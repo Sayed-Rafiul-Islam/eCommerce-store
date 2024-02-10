@@ -35,7 +35,6 @@ const Summery = () => {
     const onCheckout = async () => {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
             items : items.map((item) => item)
-
         })
 
         window.location = response.data.url
