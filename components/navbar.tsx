@@ -12,7 +12,7 @@ const Navbar = async () => {
     return ( 
         <div className="border-b">
             <Container >
-                <div className="px-4 sm:px-6 lg:px-8 relative flex items-center h-16">
+                <div className="px-4 sm:px-6 lg:px-8 relative flex lg:flex-row md:flex-row  items-center h-16">
                         <Link href='/' className="ml-4 lg:ml-0 flex gap-x-2">
                             <p className="font-bold text-xl">Cloth&apos;s Store</p>
                         </Link>
