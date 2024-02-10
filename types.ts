@@ -45,5 +45,6 @@ export interface CartItem {
     color : string,
     size : string,
     inStockCount : number,
-    totalPrice : number
+    totalPrice : number,
+    date : Date
 }

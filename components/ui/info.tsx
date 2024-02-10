@@ -29,7 +29,8 @@ const Info : React.FC<InfoProps> = ({
             color : data.colorId.name,
             size : data.sizeId.name,
             inStockCount : data.quantity,
-            totalPrice : parseFloat(data.price)
+            totalPrice : parseFloat(data.price),
+            date : new Date()
         }
 
 

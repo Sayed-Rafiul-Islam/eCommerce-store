@@ -21,6 +21,9 @@ const CartPage = () => {
     if (!isMounted) {
         return null
     }
+    cart.items.sort(function(a: { date: Date }, b: { date: Date }) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
     return ( 
         <div className="bg-white">
             <Container>

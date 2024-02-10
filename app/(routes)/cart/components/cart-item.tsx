@@ -5,9 +5,8 @@ import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
 import { CartItem } from "@/types";
-import { X } from "lucide-react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 
 
@@ -55,12 +54,18 @@ const CartItem : React.FC<CartItemProps> = ({
                         <p className="text-gray-500">{data.color}</p>
                         <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">{data.size}</p>
                     </div>
-                    <Currency value={data.totalPrice} /><br />
-                    <div className="flex">
-                        <h2 className="text-green-600 font-bold">{data.quantity}</h2>
-                        <div>
-                            <Button disabled={data.quantity <= data.inStockCount ? false : true} onClick={plus}>+</Button>
-                            <Button disabled={data.quantity < 2 ? true : false} onClick={minus}>-</Button>
+                    <div className="flex lg:flex-col md:flex-col sm:flex-col lg:items-start md:items-start sm:items-start items-center gap-5 lg:gap-0">
+                        <Currency value={data.totalPrice} />
+                        <div className="flex items-center">
+                            <h2 className="font-semibold text-gray-700">Qty&nbsp;&nbsp; {data.quantity}</h2>
+                            <div className="flex lg:flex-col md:flex-col sm:flex-col">
+                                <Button className="bg-transparent" disabled={data.quantity <= data.inStockCount ? false : true} onClick={plus}>
+                                    <ChevronUp className="text-black rounded-sm hover:bg-black hover:text-white transition-all" size={15} />
+                                </Button>
+                                <Button className="bg-transparent " disabled={data.quantity < 2 ? true : false} onClick={minus}>
+                                    <ChevronDown className="text-black rounded-sm hover:bg-black hover:text-white transition-all" size={15} />
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
