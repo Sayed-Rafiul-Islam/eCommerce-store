@@ -79,7 +79,7 @@ const CategoryPage : React.FC<CategoryPageProps> = ({
         getStuff()
 
 
-    },[searchParams.colorId, searchParams.sizeId])
+    },[searchParams.colorId, searchParams.sizeId, params.categoryId])
     
     return ( 
         <div className="bg-white">
