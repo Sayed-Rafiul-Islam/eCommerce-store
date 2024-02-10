@@ -59,11 +59,11 @@ const CartItem : React.FC<CartItemProps> = ({
                         <div className="flex items-center">
                             <h2 className="font-semibold text-gray-700">Qty&nbsp;&nbsp; {data.quantity}</h2>
                             <div className="flex lg:flex-col md:flex-col sm:flex-col">
-                                <Button className="bg-transparent" disabled={data.quantity <= data.inStockCount ? false : true} onClick={plus}>
-                                    <ChevronUp className="text-black rounded-sm hover:bg-black hover:text-white transition-all" size={15} />
+                                <Button className="bg-transparent" disabled={data.quantity < data.inStockCount ? false : true} >
+                                    <ChevronUp className="text-black rounded-sm hover:bg-black hover:text-white transition-all" onClick={plus} size={15} />
                                 </Button>
-                                <Button className="bg-transparent " disabled={data.quantity < 2 ? true : false} onClick={minus}>
-                                    <ChevronDown className="text-black rounded-sm hover:bg-black hover:text-white transition-all" size={15} />
+                                <Button className="bg-transparent" disabled={data.quantity < 2 ? true : false} >
+                                    <ChevronDown className="text-black rounded-sm hover:bg-black hover:text-white transition-all" onClick={minus} size={15} />
                                 </Button>
                             </div>
                         </div>
