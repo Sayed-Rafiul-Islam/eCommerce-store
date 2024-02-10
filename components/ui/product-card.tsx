@@ -37,7 +37,19 @@ const ProductCard : React.FC<ProductCard> = ({
     const addToCart : MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation()
 
-        cart.addItem(data)
+        const cartItem = {
+            id : data._id,
+            name : data.name,
+            image : data.images[0].url,
+            price : parseFloat(data.price),
+            quantity : 1,
+            color : data.colorId.name,
+            size : data.sizeId.name,
+            inStockCount : data.quantity,
+            totalPrice : parseFloat(data.price)
+        }
+
+        cart.addItem(cartItem)
     }
 
 

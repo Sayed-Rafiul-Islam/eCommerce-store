@@ -19,6 +19,8 @@ const Summery = () => {
     useEffect(()=> {
         if (searchParams.get("success")) {
             toast.success("Payement completed.")
+            removeAll()
+            
         }
 
         if (searchParams.get("canceled")) {
@@ -27,12 +29,13 @@ const Summery = () => {
     },[searchParams, removeAll])
 
     const totalPrice = items.reduce((total, item) => {
-        return total + Number(item.price)
+        return total + Number(item.totalPrice)
     },0)
 
     const onCheckout = async () => {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
-            productId : items.map((item) => item._id)
+            items : items.map((item) => item)
+
         })
 
         window.location = response.data.url
@@ -53,8 +56,11 @@ const Summery = () => {
                     <Currency value={totalPrice} />
                 </div>
             </div>
-            <Button onClick={onCheckout} className="w-full mt-6">
+            <Button disabled={items.length===0 ? true : false} onClick={onCheckout} className="w-full mt-6">
                 Checkout
+            </Button>
+            <Button disabled={items.length===0 ? true : false} onClick={removeAll} className="w-full mt-6 bg-red-600">
+                Empty Cart
             </Button>
         </div>
      );

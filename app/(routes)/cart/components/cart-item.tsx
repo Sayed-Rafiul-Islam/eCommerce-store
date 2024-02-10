@@ -1,29 +1,41 @@
 "use client"
 
+import Button from "@/components/button";
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
-import { Product } from "@/types";
+import { CartItem } from "@/types";
 import { X } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+
 
 interface CartItemProps {
-    data : Product
+    data : CartItem
 }
 const CartItem : React.FC<CartItemProps> = ({
     data
 }) => {
     const cart = useCart()
 
-    const onRemove = () => {
-        cart.removeItem(data._id)
+    const plus = () =>{
+        cart.quantityUp(data.id)
     }
+    const minus = () =>{
+        cart.quantityDown(data.id)
+    }
+
+    const onRemove = () => {
+        cart.removeItem(data.id)
+    }
+
     return ( 
         <li className="flex py-6 border-b">
             <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
                 <Image 
                     fill
-                    src={data.images[0].url}
+                    src={data.image}
                     alt=""
                     className="object-cover object-center"
                 />
@@ -40,11 +52,19 @@ const CartItem : React.FC<CartItemProps> = ({
                     </div>
 
                     <div className="mt-1 flex text-sm">
-                        <p className="text-gray-500">{data.colorId.name}</p>
-                        <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">{data.sizeId.name}</p>
+                        <p className="text-gray-500">{data.color}</p>
+                        <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">{data.size}</p>
                     </div>
-                    <Currency value={data.price} />
+                    <Currency value={data.totalPrice} /><br />
+                    <div className="flex">
+                        <h2 className="text-green-600 font-bold">{data.quantity}</h2>
+                        <div>
+                            <Button disabled={data.quantity <= data.inStockCount ? false : true} onClick={plus}>+</Button>
+                            <Button disabled={data.quantity < 2 ? true : false} onClick={minus}>-</Button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             
         </li>

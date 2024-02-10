@@ -15,6 +15,7 @@ export interface Product {
     categoryId : Category,
     name : string,
     price : string,
+    quantity : number,
     isFeatured : boolean,
     sizeId : Size,
     colorId : Color,
@@ -32,4 +33,16 @@ export interface Size {
     _id : string,
     name : string,
     value : string,
+}
+
+export interface CartItem {
+    id : string,
+    name : string,
+    image : string,
+    price : number,
+    quantity : number,
+    color : string,
+    size : string,
+    inStockCount : number,
+    totalPrice : number
 }
