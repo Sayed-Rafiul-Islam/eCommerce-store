@@ -17,6 +17,7 @@ export interface Product {
     price : string,
     quantity : number,
     isFeatured : boolean,
+    isArchieved : boolean,
     sizeId : Size,
     colorId : Color,
     images : Image[],
