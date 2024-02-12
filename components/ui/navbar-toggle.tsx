@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Menu, Moon, Sun } from "lucide-react"
+import { Menu } from "lucide-react"
 
 
 import { Category } from "@/types";
@@ -44,10 +44,10 @@ export const NavbarToggle : React.FC<MainNavProps> = ({
       <nav
             className="flex flex-col"
         >
-            {routes.map((route)=>(
+            {routes.map((route,index)=>(
               <DropdownMenuItem asChild>
                 <Link 
-                    key={route.href} 
+                    key={index} 
                     href={route.href}
                     className={cn(
                         'text-sm font-semibold transition-colors hover:text-black',
