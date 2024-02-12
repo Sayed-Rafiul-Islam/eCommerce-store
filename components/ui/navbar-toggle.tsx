@@ -45,9 +45,8 @@ export const NavbarToggle : React.FC<MainNavProps> = ({
             className="flex flex-col"
         >
             {routes.map((route,index)=>(
-              <DropdownMenuItem asChild>
-                <Link 
-                    key={index} 
+              <DropdownMenuItem key={index} asChild>
+                <Link  
                     href={route.href}
                     className={cn(
                         'text-sm font-semibold transition-colors hover:text-black',
